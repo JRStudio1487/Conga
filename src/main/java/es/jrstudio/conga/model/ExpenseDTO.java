@@ -7,7 +7,17 @@ public class ExpenseDTO {
     private String category;
     private Double amount;
     private LocalDate date;
-    private String type;
+    private ExpenseType type;
+
+    // CONSTRUCTORS
+    public ExpenseDTO() {
+    }
+    public ExpenseDTO(String category, Double amount, LocalDate date, ExpenseType type) {
+        this.category = category;
+        this.amount = amount;
+        this.date = date;
+        this.type = type;
+    }
 
     // GETTERS & SETTERS
     public Long getId() {
@@ -34,10 +44,10 @@ public class ExpenseDTO {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-    public String getType() {
+    public ExpenseType getType() {
         return type;
     }
-    public void setType(String type) {
+    public void setType(ExpenseType type) {
         this.type = type;
     }
 

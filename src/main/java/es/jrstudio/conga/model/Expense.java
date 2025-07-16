@@ -1,5 +1,6 @@
 package es.jrstudio.conga.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -13,10 +14,21 @@ public class Expense {
 
     private String category;
     private Double amount;
+    @JsonFormat(pattern = "dd/MM/YYYY")
     private LocalDate date;
 
     @Enumerated(EnumType.STRING)
     private ExpenseType type;
+
+    // CONSTRUCTORS
+    public Expense() {
+    }
+    public Expense(String category, Double amount, LocalDate date, ExpenseType type) {
+        this.category = category;
+        this.amount = amount;
+        this.date = date;
+        this.type = type;
+    }
 
     // GETTERS
     public Long getId() {
